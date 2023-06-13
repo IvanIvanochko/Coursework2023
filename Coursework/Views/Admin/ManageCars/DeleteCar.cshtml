@@ -1,0 +1,75 @@
+﻿@model Coursework.Models.CarTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Видалити Автомобіль</h1>
+
+        <p>Ви впевнені, що хочете видалити цей автомобіль?</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Тип автомобіля</th>
+                    <th>Рік</th>
+                    <th>Бренд</th>
+                    <th>Модель</th>
+                    <th>Вантажопідйомність (кг)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.ID</td>
+                    <td>@Model.CarType</td>
+                    <td>@Model.Year</td>
+                    <td>@Model.Brand</td>
+                    <td>@Model.Model</td>
+                    <td>@Model.Capacity_kg</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+            <input type="submit" value="Видалити" />
+            <a asp-action="ManageCars">Скасувати</a>
+        </form>
+    </div>
+</body>
+</html>
+
+@*<h1>Delete Car</h1>
+
+<p>Are you sure you want to delete this car?</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Car Type</th>
+            <th>Year</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Capacity (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.CarType</td>
+            <td>@Model.Year</td>
+            <td>@Model.Brand</td>
+            <td>@Model.Model</td>
+            <td>@Model.Capacity_kg</td>
+        </tr>
+    </tbody>
+</table>
+
+<form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+    <input type="submit" value="Delete" />
+    <a asp-action="ManageCars">Cancel</a>
+</form>*@

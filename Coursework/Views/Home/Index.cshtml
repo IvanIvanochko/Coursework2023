@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/css/main.css")" />
+</head>
+<body>
+@*@if (ViewData["Data"] != null)
+{
+    var userData = (UserTable)ViewData["Data"];
+
+    <section>
+        <div class="centered">
+            <div class="user-data">
+                <p>ID: @userData.ID</p>
+                <p>Name: @userData.Name</p>
+                <p>Surname: @userData.Surname</p>
+                <p>Birthdate: @userData.Birthdate</p>
+                <p>Email: @userData.Email</p>
+                <p>Password: @userData.Password</p>
+            </div>
+        </div>
+    </section>
+}*@
+
+<section>
+    <div class="centered">
+        <div class="containerImg hidden" style="margin-bottom: 50px;">
+            <img src="~/images/Truck.jpg" alt="Truck">
+            <p class="text">Автоматизована система управління транспортними перевезеннями для ефективної логістики</p>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <img class="hidden" src="images/scrolling_mousewheel.gif" alt="Truck"
+                 style="width: 10%;">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="centered">
+        <div class="container hidden background-scatter-circles">
+            <p class="text">
+                Наша мета - надати клієнтам потужні інструменти для ефективного керування транспортними перевезеннями,
+                зниження витрат і підвищення продуктивності. Наша веб-орієнтована система дозволяє замовляти транспорт,
+                планувати оптимальні маршрути, моніторити рух транспортних засобів в режимі реального часу і
+                керувати складськими операціями.
+                <br><br>
+                Ми пропонуємо інноваційні рішення, побудовані на передових технологіях,
+                що дозволяють нашим клієнтам отримувати значні переваги на ринку.
+                Наша команда експертів з глибоким розумінням логістичних потреб і викликів розробляє індивідуальні рішення,
+                відповідні конкретним вимогам кожного клієнта.
+            </p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

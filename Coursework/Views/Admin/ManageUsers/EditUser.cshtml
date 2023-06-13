@@ -1,0 +1,82 @@
+﻿@model Coursework.Models.UserTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="containerF container">
+        <h2>Редагувати користувача</h2>
+
+        <form method="post" asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Name">Ім'я</label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname">Прізвище</label>
+                <input asp-for="Surname" />
+                <span asp-validation-for="Surname"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate">Дата народження</label>
+                <input asp-for="Birthdate" type="date" />
+                <span asp-validation-for="Birthdate"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Пароль</label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit">Зберегти</button>
+                <a asp-action="ManageUsers">Скасувати</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+@*<h1>Edit User</h1>
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="ID" />
+    <div>
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Surname">Surname</label>
+        <input asp-for="Surname" />
+        <span asp-validation-for="Surname"></span>
+    </div>
+    <div>
+        <label asp-for="Birthdate">Birthdate</label>
+        <input asp-for="Birthdate" type="date" />
+        <span asp-validation-for="Birthdate"></span>
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <button type="submit">Save</button>
+    <a asp-action="ManageUsers">Cancel</a>
+</form>
+*@

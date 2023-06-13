@@ -1,0 +1,59 @@
+﻿@{
+    var myOrderInfos = ViewData["MyOrderInfos"] as List<OrderInfoModel>;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Home/UserOrders.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+
+    <h1>Ваші замовлення</h1>
+
+    @if (myOrderInfos != null && myOrderInfos.Count > 0)
+    {
+        <table>
+            <tr>
+                <th>Дата замовлення</th>
+                <th>З міста</th>
+                <th>Адресса</th>
+                <th>В місто</th>
+                <th>Адресса</th>
+
+                <th>Контакти водія</th>
+                <th>Грузовик</th>
+                <th>Вантажність</th>
+                <th>Тип грузу</th>
+            </tr>
+            @foreach (var orderInfo in myOrderInfos)
+            {
+                <tr>
+                    <td>@orderInfo.Date</td>
+                    <td>@orderInfo.FromCity.City</td>
+                    <td>@orderInfo.FromCity.Address</td>
+                    <td>@orderInfo.ToCity.City</td>
+                    <td>@orderInfo.ToCity.Address</td>
+                    @if (@orderInfo.DriverID != 27)
+                    {
+                        <td>@orderInfo.Driver?.UserInfo?.Email</td>
+                        <td>@orderInfo.Driver?.Vehicle?.Brand @orderInfo.Driver?.Vehicle?.Model @orderInfo.Driver?.Vehicle?.Year</td>
+                        <td>@orderInfo.Capacity_kg</td>
+                        <td>@orderInfo.OrderType.OrderType</td>
+                    }
+                    else
+                    {
+                        <td>Замовлення розглядається</td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>У вас немає замовлень</p>
+    }
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model Coursework.Models.UserTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Детальна інформація про користувача</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Ім'я</th>
+                <th>Прізвище</th>
+                <th>Дата народження</th>
+                <th>Email</th>
+                <th>Пароль</th>
+            </tr>
+            <tr>
+                <td>@Model.ID</td>
+                <td>@Model.Name</td>
+                <td>@Model.Surname</td>
+                <td>@Model.Birthdate</td>
+                <td>@Model.Email</td>
+                <td>@Model.Password</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+@*<h1>Детальніша інформація про користувача</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Birthdate</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Surname</td>
+        <td>@Model.Birthdate</td>
+        <td>@Model.Email</td>
+        <td>@Model.Password</td>
+    </tr>
+</table>*@

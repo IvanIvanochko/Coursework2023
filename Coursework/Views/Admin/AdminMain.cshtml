@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+	<div class="button-container container">
+		<button onclick="location.href='@Url.Action("ManageUsers", "Users")'">Користувачі</button>
+		<button onclick="location.href='@Url.Action("ManageDrivers", "Drivers")'">Водії</button>
+		<button onclick="location.href='@Url.Action("ManageCars", "Cars")'">Машини</button>
+	</div>
+</body>
+</html>
+
+@*
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+	
+</body>
+</html>
+*@

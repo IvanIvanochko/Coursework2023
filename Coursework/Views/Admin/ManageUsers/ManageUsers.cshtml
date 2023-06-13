@@ -1,0 +1,130 @@
+﻿@model Coursework.Models.UserPageViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Керування користувачами</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Роль</th>
+                    <th>ID</th>
+                    <th>Ім'я</th>
+                    <th>Прізвище</th>
+                    <th>Дата народження</th>
+                    <th>Email</th>
+                    <th>Пароль</th>
+                    <th>Дія</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>
+                            @{
+                                var roles = Model.Roles.FirstOrDefault(r => r.UserInfoID == user.ID);
+                                if (roles != null)
+                                {
+                                    if (roles.Driver)
+                                    {
+                                        <text>Водій</text>
+                                    }
+                                    else if (roles.Admin)
+                                    {
+                                        <text>Адміністратор</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Користувач</text>
+                                    }
+                                }
+                                else
+                                {
+                                    <text>Користувач</text>
+                                }
+                            }
+                        </td>
+                        <td>@user.ID</td>
+                        <td>@user.Name</td>
+                        <td>@user.Surname</td>
+                        <td>@user.Birthdate</td>
+                        <td>@user.Email</td>
+                        <td>@user.Password</td>
+
+                        <td>
+                            <a asp-action="Edit" asp-controller="Users" asp-route-id="@user.ID">Редагувати</a> |
+                            <a asp-action="Delete" asp-controller="Users" asp-route-id="@user.ID">Видалити</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+@*<h1>Manage Users</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthdate</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @{
+                        var roles = Model.Roles.FirstOrDefault(r => r.UserInfoID == user.ID);
+                        if (roles != null)
+                        {
+                            if (roles.Driver)
+                            {
+                                <text>Driver</text>
+                            }
+                            else if (roles.Admin)
+                            {
+                                <text>Admin</text>
+                            }
+                            else
+                            {
+                                <text>User</text>
+                            }
+                        }
+                        else
+                        {
+                            <text>User</text>
+                        }
+                    }
+                </td>
+                <td>@user.ID</td>
+                <td>@user.Name</td>
+                <td>@user.Surname</td>
+                <td>@user.Birthdate</td>
+                <td>@user.Email</td>
+                <td>@user.Password</td>
+
+                <td>
+                    <a asp-action="Edit" asp-controller="Users" asp-route-id="@user.ID">Edit</a> |
+                    <a asp-action="Delete" asp-controller="Users" asp-route-id="@user.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@

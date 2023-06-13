@@ -1,0 +1,115 @@
+﻿@model Coursework.Models.CarTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Редагувати Автомобіль</h1>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-summary">
+                <p>Будь ласка, виправте наступні помилки:</p>
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <form method="post" asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
+
+            <div class="form-group">
+                <label asp-for="CarType">Тип автомобіля</label>
+                <input asp-for="CarType" />
+                <span asp-validation-for="CarType"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Year">Рік</label>
+                <input asp-for="Year" />
+                <span asp-validation-for="Year"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Brand">Бренд</label>
+                <input asp-for="Brand" />
+                <span asp-validation-for="Brand"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Model">Модель</label>
+                <input asp-for="Model" />
+                <span asp-validation-for="Model"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Capacity_kg">Вантажопідйомність (кг)</label>
+                <input asp-for="Capacity_kg" />
+                <span asp-validation-for="Capacity_kg"></span>
+            </div>
+
+            <button type="submit">Зберегти</button>
+            <a asp-action="ManageCars">Скасувати</a>
+        </form>
+    </div>
+</body>
+</html>
+
+@*<h1>Edit Car</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="validation-summary">
+        <p>Please correct the following errors:</p>
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="ID" />
+
+    <div>
+        <label asp-for="CarType">Car Type</label>
+        <input asp-for="CarType" />
+        <span asp-validation-for="CarType"></span>
+    </div>
+
+    <div>
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" />
+        <span asp-validation-for="Year"></span>
+    </div>
+
+    <div>
+        <label asp-for="Brand">Brand</label>
+        <input asp-for="Brand" />
+        <span asp-validation-for="Brand"></span>
+    </div>
+
+    <div>
+        <label asp-for="Model">Model</label>
+        <input asp-for="Model" />
+        <span asp-validation-for="Model"></span>
+    </div>
+
+    <div>
+        <label asp-for="Capacity_kg">Capacity (kg)</label>
+        <input asp-for="Capacity_kg" />
+        <span asp-validation-for="Capacity_kg"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a asp-action="ManageCars">Cancel</a>
+</form>*@

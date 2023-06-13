@@ -1,0 +1,90 @@
+﻿@model Coursework.Models.OrderInfoModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Driver/DriverOrders.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+
+    <h1>Деталі замовлення</h1>
+
+    @if (Model != null)
+    {
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>ID користувача</th>
+                <th>Дата</th>
+                <th>Від міста</th>
+                <th>До міста</th>
+                <th>ID водія</th>
+                <th>Вантажопідйомність (кг)</th>
+                <th>ID типу замовлення</th>
+                <th>Дія</th>
+            </tr>
+            <tr>
+                <td>@Model.ID</td>
+                <td>@Model.UserInfoID</td>
+                <td>@Model.Date</td>
+                <td>@Model.FromCity.City, @Model.FromCity.Address</td>
+                <td>@Model.ToCity.City, @Model.ToCity.Address</td>
+                <td>@Model.DriverID</td>
+                <td>@Model.Capacity_kg</td>
+                <td>@Model.OrderTypeID</td>
+                <td>
+                    <form method="post" action="/Driver/ConfirmOrder">
+                        <input type="hidden" name="ID" value="@Model.ID" /> <!-- Add this line to include the ID -->
+                        <input type="submit" value="Підтвердити замовлення" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <p>Замовлення не знайдено.</p>
+    }
+    </div>
+</body>
+</html>
+
+@*<h1>Order Details</h1>
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>User Info ID</th>
+            <th>Date</th>
+            <th>From City</th>
+            <th>To City</th>
+            <th>Driver ID</th>
+            <th>Capacity (kg)</th>
+            <th>Order Type ID</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.UserInfoID</td>
+            <td>@Model.Date</td>
+            <td>@Model.FromCity.City, @Model.FromCity.Address</td>
+            <td>@Model.ToCity.City, @Model.ToCity.Address</td>
+            <td>@Model.DriverID</td>
+            <td>@Model.Capacity_kg</td>
+            <td>@Model.OrderTypeID</td>
+            <td>
+                <form method="post" action="/Driver/ConfirmOrder">
+                    <input type="hidden" name="ID" value="@Model.ID" /> <!-- Add this line to include the ID -->
+                    <input type="submit" value="Confirm Order" />
+                </form>
+            </td>
+        </tr>
+    </table>
+}
+else
+{
+    <p>No order found.</p>
+}*@

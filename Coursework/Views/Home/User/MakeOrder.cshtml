@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Home/UserOrders.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+
+        <form method="post" action="/Home/MakeOrder">
+            <div class="containerF">
+                <h2>Зробіть ваше замовлення!</h2>
+                <div class="form-group">
+                    <label for="fromCity">З міста:</label>
+                    <input type="text" name="fromCity" required>
+                </div>
+                <div class="form-group">
+                    <label for="fromAddress">Адресса:</label>
+                    <input type="text" name="fromAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="toCity">У місто:</label>
+                    <input type="text" name="toCity" required>
+                </div>
+                <div class="form-group">
+                    <label for="toAddress">Адресса:</label>
+                    <input type="text" name="toAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="cargoWeight">Вантажність вашого грузу:</label>
+                    <input type="text" name="cargoWeight" required>
+                </div>
+                <div class="form-group">
+                    <label for="typeOrder">Тип вашого грузу:</label>
+                    <select name="typeOrder" id="typeOrder">
+                        @foreach (var orderType in (List<OrderTypeModel>)ViewData["OrderTypes"])
+                        {
+                            <option value="@orderType.ID">@orderType.OrderType</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="affirmButton" type="submit">Зробити замовлення</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script src="@Url.Content("~/js/MakeOrder/MakeOrder.js")"></script>
+</body>
+</html>

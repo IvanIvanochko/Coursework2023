@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Log-Reg/form-style.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/Authorization/Login">
+            <div class="containerF">
+                <h2>Логування</h2>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <button class="affirmButton" onclick="logIn()" id="" type="submit">Зайти</button>
+                </div>
+
+                @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+                {
+                    <div class="error-message">
+                        <p>@ViewData["ErrorMessage"]</p>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</body>
+</html>

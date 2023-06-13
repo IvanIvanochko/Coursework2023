@@ -1,0 +1,53 @@
+﻿@model Coursework.Models.CarTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Детальніше інофрмація про автомобіль</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Тип автомобіля</th>
+                <th>Рік</th>
+                <th>Бренд</th>
+                <th>Модель</th>
+                <th>Вантажопідйомність (кг)</th>
+            </tr>
+            <tr>
+                <td>@Model.ID</td>
+                <td>@Model.CarType</td>
+                <td>@Model.Year</td>
+                <td>@Model.Brand</td>
+                <td>@Model.Model</td>
+                <td>@Model.Capacity_kg</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+@*<h1>Car Details</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Car Type</th>
+        <th>Year</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Capacity (kg)</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.CarType</td>
+        <td>@Model.Year</td>
+        <td>@Model.Brand</td>
+        <td>@Model.Model</td>
+        <td>@Model.Capacity_kg</td>
+    </tr>
+</table>*@

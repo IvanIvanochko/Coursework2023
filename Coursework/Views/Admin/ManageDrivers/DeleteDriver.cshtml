@@ -1,0 +1,61 @@
+﻿@model Coursework.Models.DriverInfo
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Видалити водія</h1>
+
+        <p>Ви впевнені, що дійсно хочите видалити даного водія?</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Vehicle ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <td>@Model.ID</td>
+            <td><a href="@Url.Action("Details", "Users", new { id = Model.UserInfoID })">@Model.UserInfoID</a></td>
+            <td>@Model.VehicleID</td>
+            </tbody>
+        </table>
+
+        <form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+            <input type="submit" value="Delete" />
+            <a asp-action="ManageDrivers">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
+
+@*<h1>Видалити водія</h1>
+
+<p>Ви впевнені, що дійсно хочите видалити даного водія?</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Vehicle ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td>@Model.ID</td>
+    <td><a href="@Url.Action("Details", "Users", new { id = Model.UserInfoID })">@Model.UserInfoID</a></td>
+    <td>@Model.VehicleID</td>
+    </tbody>
+</table>
+
+<form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+    <input type="submit" value="Delete" />
+    <a asp-action="ManageDrivers">Cancel</a>
+</form>*@

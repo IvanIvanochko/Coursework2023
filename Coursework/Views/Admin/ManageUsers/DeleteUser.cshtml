@@ -1,0 +1,72 @@
+﻿@model Coursework.Models.UserTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Видалити користувача</h1>
+
+        <p>Ви впевнені, що хочете видалити наступного користувача?</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ім'я</th>
+                    <th>Прізвище</th>
+                    <th>Дата народження</th>
+                    <th>Email</th>
+                    <th>Пароль</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.ID</td>
+                    <td>@Model.Name</td>
+                    <td>@Model.Surname</td>
+                    <td>@Model.Birthdate</td>
+                    <td>@Model.Email</td>
+                    <td>@Model.Password</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form class="form" method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+            <input type="submit" value="Видалити" />
+            <a asp-action="ManageUsers">Скасувати</a>
+        </form>
+    </div>
+</body>
+</html>
+
+@*<h1>Delete User</h1>
+
+<p>Are you sure you want to delete the following user?</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Birthdate</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Surname</td>
+        <td>@Model.Birthdate</td>
+        <td>@Model.Email</td>
+        <td>@Model.Password</td>
+    </tr>
+</table>
+
+<form method="post" asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+    <input type="submit" value="Delete" />
+    <a asp-action="ManageUsers">Cancel</a>
+</form>*@

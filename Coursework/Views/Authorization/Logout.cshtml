@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Log-Reg/form-style.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="containerF">
+        <h1>Вийти</h1>
+
+        <p>Ви дійсно бажаєте вийти?</p>
+
+        <form method="post" action="/Authorization/LogoutConfirmed">
+            <button type="submit">Вийти</button>
+        </form>
+    </div>
+</body>
+</html>

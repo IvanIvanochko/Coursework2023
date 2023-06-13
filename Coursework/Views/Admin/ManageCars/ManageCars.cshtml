@@ -1,0 +1,77 @@
+﻿@model List<Coursework.Models.CarTable>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Керувати Автомобілями</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Тип автомобіля</th>
+                    <th>Рік</th>
+                    <th>Бренд</th>
+                    <th>Модель</th>
+                    <th>Вантажопідйомність (кг)</th>
+                    <th>Дія</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model)
+                {
+                    <tr>
+                        <td>@car.ID</td>
+                        <td>@car.CarType</td>
+                        <td>@car.Year</td>
+                        <td>@car.Brand</td>
+                        <td>@car.Model</td>
+                        <td>@car.Capacity_kg</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Cars" asp-route-id="@car.ID">Редагувати</a> |
+                            <a asp-action="Delete" asp-controller="Cars" asp-route-id="@car.ID">Видалити</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+@*<h1>Manage Cars</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Car Type</th>
+            <th>Year</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Capacity (kg)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.ID</td>
+                <td>@car.CarType</td>
+                <td>@car.Year</td>
+                <td>@car.Brand</td>
+                <td>@car.Model</td>
+                <td>@car.Capacity_kg</td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Cars" asp-route-id="@car.ID">Edit</a> |
+                    <a asp-action="Delete" asp-controller="Cars" asp-route-id="@car.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

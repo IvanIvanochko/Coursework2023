@@ -1,0 +1,76 @@
+﻿@{
+    var isAuthenticated = Context.User.Identity.IsAuthenticated;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Coursework</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    @*<link rel="stylesheet" href="~/Coursework.styles.css" asp-append-version="true" />*@
+
+    <link rel="stylesheet" href="~/css/TemplateMain/TemplateMain.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/TemplateMain/Footer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/backgrounds.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Buttons.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-header">
+        <img src="~/vectors-svg/header/frontal-truck-svgrepo-com.svg" alt="Edit Icon" class="pic-header" name="" />
+
+        @*@if (ViewData["Data"] != null)
+        {
+            var userData = (UserTable)ViewData["Data"];
+            <p class="text-header" style="margin-right: auto; font-size: 15px;">@userData.Email</p>
+        }*@
+        <a class="text-header" asp-area="" asp-controller="Home" asp-action="Index" style="margin-right:auto;">Головна</a>
+        @if (ViewData["Data"] != null)
+        {
+            switch (ViewData["Role"])
+            {
+                case 0:
+                    <a class="text-header" asp-area="" asp-controller="Home" asp-action="MakeOrder">Зробити замовлення</a>
+                    <a class="text-header" asp-area="" asp-controller="Home" asp-action="MyOrders">Мої замовлення</a>
+                    break;
+                case 1:
+                    <a class="text-header" asp-area="" asp-controller="Driver" asp-action="ChoseOrder">Взяти замовлення</a>
+                    <a class="text-header" asp-area="" asp-controller="Driver" asp-action="TakenOrders">Мої доставки</a>
+                    break;
+                case 2:
+                    <a class="text-header" asp-area="" asp-controller="Admin" asp-action="AdminMain">База даних</a>
+                    break;
+
+            }
+            <a class="text-header" asp-area="" asp-controller="Home" asp-action="Cabinet">Мій кабінет</a>
+
+            @if (isAuthenticated)
+            {
+                <a class="text-header" asp-area="" asp-controller="Authorization" asp-action="Logout">Вийти</a>
+            }
+        }
+        @if (ViewData["Data"] == null)
+        {
+            <a class="text-header" asp-area="" asp-controller="Authorization" asp-action="Registration">Реєстрація</a>
+            <a class="text-header" asp-area="" asp-controller="Authorization" asp-action="Login">Увійти</a>
+        }
+    </div>
+
+    <main role="main" @*class="pb-3"*@>
+            @RenderBody()
+    </main>
+
+
+    <footer class="footer">
+        <p>&copy; 2023. Курсова робота. | Виконав: <a href="#">Іваночко Іван</a></p>
+    </footer>
+
+    <script src="~/js/animation-main.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

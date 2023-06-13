@@ -1,0 +1,57 @@
+﻿@model List<Coursework.Models.DriverInfo>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Керування водіями</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>ID користувача</th>
+                <th>ID транспортного засобу</th>>
+            </tr>
+            @foreach (var driver in Model)
+            {
+                <tr>
+                    <td>@driver.ID</td>
+                    <td><a href="@Url.Action("Details", "Users", new { id = driver.UserInfoID })">@driver.UserInfoID</a></td>
+                    <td><a href="@Url.Action("Details", "Cars", new { id = driver.UserInfoID })">@driver.VehicleID</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+@*<h1>Manage Drivers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Vehicle ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var driver in Model)
+        {
+            <tr>
+                <td>@driver.ID</td>
+                <td><a href="@Url.Action("Details", "Users", new { id = driver.UserInfoID })">@driver.UserInfoID</a></td>
+                <td><a href="@Url.Action("Details", "Cars", new { id = driver.UserInfoID })">@driver.VehicleID</a></td>
+                as@s*<td>
+                    <a asp-action="Edit" asp-controller="Drivers" asp-route-id="@driver.ID">Edit</a> |
+                    <a asp-action="Delete" asp-controller="Drivers" asp-route-id="@driver.ID">Delete</a>
+                </td>*.s@
+            </tr>
+        }
+    </tbody>
+</table>
+*@

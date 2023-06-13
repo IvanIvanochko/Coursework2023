@@ -1,0 +1,97 @@
+﻿@model List<Coursework.Models.OrderInfoModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Driver/DriverOrders.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Інформація про замовлення</h1>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID користувача</th>
+                        <th>Дата</th>
+                        <th>Від міста</th>
+                        <th>До міста</th>
+                        <th>ID водія</th>
+                        <th>Вантажопідйомність (кг)</th>
+                        <th>ID типу замовлення</th>
+                        <th>Дія</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>@order.ID</td>
+                            <td>@order.UserInfoID</td>
+                            <td>@order.Date</td>
+                            <td>@order.FromCity.City, @order.FromCity.Address</td>
+                            <td>@order.ToCity.City, @order.ToCity.Address</td>
+                            <td>@order.DriverID</td>
+                            <td>@order.Capacity_kg</td>
+                            <td>@order.OrderTypeID</td>
+                            <td>
+                                <a href="@Url.Action("TakeOrder", "Driver", new { id = order.ID })">Взяти замовлення</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Інформація про замовлення відсутня.</p>
+        }
+    </div>
+</body>
+</html>
+
+@*<h1>Order Information</h1>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User Info ID</th>
+                <th>Date</th>
+                <th>From City</th>
+                <th>To City</th>
+                <th>Driver ID</th>
+                <th>Capacity (kg)</th>
+                <th>Order Type ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.ID</td>
+                    <td>@order.UserInfoID</td>
+                    <td>@order.Date</td>
+                    <td>@order.FromCity.City, @order.FromCity.Address</td>
+                    <td>@order.ToCity.City, @order.ToCity.Address</td>
+                    <td>@order.DriverID</td>
+                    <td>@order.Capacity_kg</td>
+                    <td>@order.OrderTypeID</td>
+                    <td>
+                        <a href="@Url.Action("TakeOrder", "Driver", new { id = order.ID })">Take Order</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No order information available.</p>*@
+}

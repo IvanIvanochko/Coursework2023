@@ -1,0 +1,133 @@
+﻿@model Coursework.Models.DriverPageViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/Admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>Редагувати водія</h1>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-summary">
+                <p>Будь ласка, виправте наступні помилки:</p>
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <form method="post" asp-action="Edit">
+            <input type="hidden" asp-for="DriverInfo.ID" />
+
+            <div class="form-group">
+                <label asp-for="DriverInfo.UserInfoID">ID користувача</label>
+                <select asp-for="DriverInfo.UserInfoID" asp-items="@(new SelectList(Model.Users ?? Enumerable.Empty<Coursework.Models.UserTable>(), "ID", "ID"))"></select>
+                <span asp-validation-for="DriverInfo.UserInfoID"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DriverInfo.VehicleID">ID транспортного засобу</label>
+                <select asp-for="DriverInfo.VehicleID" asp-items="@(new SelectList(Model.Cars ?? Enumerable.Empty<Coursework.Models.CarTable>(), "ID", "ID"))"></select>
+                <span asp-validation-for="DriverInfo.VehicleID"></span>
+            </div>
+
+            <button type="submit">Зберегти</button>
+            <a asp-action="ManageDrivers">Скасувати</a>
+        </form>
+    </div>
+
+    <script>
+        // Assign selected values to DriverInfo.VehicleID and DriverInfo.UserInfoID
+        var selectedVehicleId = "@Model.DriverInfo.VehicleID";
+        var selectedUserId = "@Model.DriverInfo.UserInfoID";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var vehicleDropdown = document.querySelector("select[name='DriverInfo.VehicleID']");
+            var userDropdown = document.querySelector("select[name='DriverInfo.UserInfoID']");
+
+            // Set selected vehicle
+            if (selectedVehicleId) {
+                var vehicleOption = vehicleDropdown.querySelector("option[value='" + selectedVehicleId + "']");
+                if (vehicleOption) {
+                    vehicleOption.selected = true;
+                }
+            }
+
+            // Set selected user
+            if (selectedUserId) {
+                var userOption = userDropdown.querySelector("option[value='" + selectedUserId + "']");
+                if (userOption) {
+                    userOption.selected = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+@*<h1>Edit Driver</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="validation-summary">
+        <p>Please correct the following errors:</p>
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="DriverInfo.ID" />
+
+    <div>
+        <label asp-for="DriverInfo.UserInfoID">User ID</label>
+        <select asp-for="DriverInfo.UserInfoID" asp-items="@(new SelectList(Model.Users ?? Enumerable.Empty<Coursework.Models.UserTable>(), "ID", "ID"))"></select>
+        <span asp-validation-for="DriverInfo.UserInfoID"></span>
+    </div>
+
+    <div>
+        <label asp-for="DriverInfo.VehicleID">Vehicle ID</label>
+        <select asp-for="DriverInfo.VehicleID" asp-items="@(new SelectList(Model.Cars ?? Enumerable.Empty<Coursework.Models.CarTable>(), "ID", "ID"))"></select>
+        <span asp-validation-for="DriverInfo.VehicleID"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a asp-action="ManageDrivers">Cancel</a>
+</form>
+
+<script>
+    // Assign selected values to DriverInfo.VehicleID and DriverInfo.UserInfoID
+    var selectedVehicleId = "@Model.DriverInfo.VehicleID";
+    var selectedUserId = "@Model.DriverInfo.UserInfoID";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var vehicleDropdown = document.querySelector("select[name='DriverInfo.VehicleID']");
+        var userDropdown = document.querySelector("select[name='DriverInfo.UserInfoID']");
+
+        // Set selected vehicle
+        if (selectedVehicleId) {
+            var vehicleOption = vehicleDropdown.querySelector("option[value='" + selectedVehicleId + "']");
+            if (vehicleOption) {
+                vehicleOption.selected = true;
+            }
+        }
+
+        // Set selected user
+        if (selectedUserId) {
+            var userOption = userDropdown.querySelector("option[value='" + selectedUserId + "']");
+            if (userOption) {
+                userOption.selected = true;
+            }
+        }
+    });
+</script>*@

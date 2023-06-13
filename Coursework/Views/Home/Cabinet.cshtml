@@ -1,0 +1,102 @@
+﻿@{
+    var userInfo = (UserTable)ViewData["Data"];
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Cabinet/Cabinet.css" asp-append-version="true" />
+</head>
+<body>
+<script>
+    var userInfo = @Html.Raw(Json.Serialize(ViewData["Data"]));
+</script>
+<div class="middle">
+        <div class="hidden-pop background-low-poly"></div>
+
+    <div class="column hidden">
+        <div class="row">
+            <p class="text">Email:</p>
+            <input type="email" class="myInput" name="Email" value="@userInfo.Email">
+            <button name="myButton">
+                <img src="~/vectors-svg/edit-button-svgrepo-com.svg" alt="Edit Icon" class="iconInput" name="myIcon" />
+                Редагувати мій Еmail
+            </button>
+        </div>
+        <div class="row">
+            <p class="text">Ім'я:</p>
+            <input type="text" class="myInput" name="Name" value="@userInfo.Name">
+            <button name="myButton">
+                <img src="~/vectors-svg/edit-button-svgrepo-com.svg" alt="Edit Icon" class="iconInput" name="myIcon" />
+                Редагувати моє ім'я
+            </button>
+        </div>
+        <div class="row">
+            <p class="text">Прізвище:</p>
+            <input type="text" class="myInput" name="Surname" value="@userInfo.Surname">
+            <button name="myButton">
+                <img src="~/vectors-svg/edit-button-svgrepo-com.svg" alt="Edit Icon" class="iconInput" name="myIcon" />
+                Редагувати моє прізвище
+            </button>
+        </div>
+        <div class="row">
+            <p class="text">Дата<br>Народження:</p>
+            <input type="date" class="myInput" name="Birthdate" id="BirthdateInput" value="" />
+            <button name="myButton">
+                <img src="~/vectors-svg/edit-button-svgrepo-com.svg" alt="Edit Icon" class="iconInput" name="myIcon" />
+                Редагувати мою дату народження
+            </button>
+        </div>
+        <div class="row">
+            <button class="centerBtn" onclick="openPassPopUp()" id="passPopUpBtn">
+                <img src="~/vectors-svg/password-icons/password-cursor-svgrepo-com.svg" alt="Edit Icon" class="iconInput" name="myIcon" id="passPopUpImg" />
+                <p id="passPopUpBtnP" style="font-size: 25px; margin: 0px 0px;">Змінити пароль</p>
+            </button>
+        </div>
+
+        <button class="affirmButton" onclick="openBoxPopUp()" id="openBoxPopUpBtn">Застосувати зміни</button>
+
+        <!-- Pop Ups -->
+        <div class="column box" id="boxPopUp">
+            <p class="text">Підвертіть свої зміни</p>
+            <div class="row">
+                <p class="text">Введіть пароль:</p>
+                <input type="password" class="submit" />
+            </div>
+            <div class="row">
+                <p class="text">Підвертіть пароль:</p>
+                <input type="password" class="submit" />
+            </div>
+        </div>
+
+        <div class="column box" id="passPopUp">
+            <div class="row" id="passPopUpRow">
+                <p class="text centerP" id="passPopUpP">Заміна пароля</p>
+                <button onclick="closePassPopUp()">
+                    <img src="~/vectors-svg/password-icons/password-error-svgrepo-com.svg" alt="Edit Icon" class="iconInput" />
+                    Закрити
+                </button>
+            </div>
+            <div class="row">
+                <p class="text">Введіть старий пароль:</p>
+                <input type="password" class="submit" id="passInputOld" />
+            </div>
+            <div class="row">
+                <p class="text">Введіть новий пароль:</p>
+                <input type="password" class="submit" id="passInputNew1" />
+            </div>
+            <div class="row">
+                <p class="text">Підвертіть новий пароль:</p>
+                <input type="password" class="submit" id="passInputNew2" />
+            </div>
+            <button class="affirmButton" onclick="verifyPassPopUp()">Підвертити</button>
+            <p class="text centerP" id="passPopUpP_Error"></p>
+        </div>
+    </div>
+
+</div>
+
+
+    <script src="@Url.Content("~/js/Cabinet/Cabinet.js")"></script>
+</body>
+</html>
