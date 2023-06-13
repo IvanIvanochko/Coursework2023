@@ -1,0 +1,173 @@
+﻿body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.middle {
+    flex-grow: 1; /* Allow the middle div to grow and occupy remaining space */
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    /* align-items: center;  */
+    width: 100%;
+}
+
+.bottom {
+    position: absolute; /* Position the div absolutely */
+    width: 100%;
+    bottom: 0; /* Position it at the bottom */
+    right: 0; /* Position it at the right */
+}
+
+.text {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+
+    padding: 12px 20px;
+    font-size: 30px;
+    margin: 8px 10px;
+}
+
+input {
+    width: 45vw;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 12px 20px;
+    font-size: 30px;
+    margin: 8px 10px;
+    box-sizing: border-box;
+    border: none;
+}
+
+    input:focus {
+        background-color: rgba(0, 0, 0, 0);
+        outline: rgba(0, 0, 0, 0) none 0px;
+    }
+
+    input[type=password] {
+        width: 45vw;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 12px 20px;
+        font-size: 30px;
+        margin: 8px 10px;
+        box-sizing: border-box;
+        border: rgb(0, 0, 0) solid 3px;
+    }
+
+        input[type=password]:focus {
+            background-color: rgb(218, 218, 218);
+            padding: 12px 20px;
+            font-size: 30px;
+            margin: 8px 10px;
+            box-sizing: border-box;
+            border: rgb(0, 0, 0) solid 3px;
+        }
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center vertically */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px 10px;
+    height: 10vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.iconInput {
+    width: 50px;
+    height: 50px;
+}
+
+.row button {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    margin-left: auto; /* Push buttons to the left */
+}
+
+.row .centerBtn {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row .centerP {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+button:hover {
+    color: gray;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.hidden-pop {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 1s;
+}
+
+.show-pop {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.box {
+    transform: translateY(50%) scale(0.01);
+    position: absolute;
+    background-color: white;
+    border-radius: 5%;
+    padding: 24px 40px;
+    margin: 8px 10px;
+    visibility: hidden;
+    transition: all 1s;
+}
+
+.box-open {
+    visibility: visible;
+    transform: scale(1);
+}
+
+.box .row {
+    display: flex;
+    justify-content: flex-end;
+}

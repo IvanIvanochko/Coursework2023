@@ -1,0 +1,23 @@
+.background-low-poly{
+    position: absolute;
+    z-index: -1;
+
+
+    aspect-ratio: 900/600;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    background-image: url('../vectors-svg/backgrounds/low-poly-grid-haikei.svg');
+}
+
+.background-scatter-circles{
+    aspect-ratio: 900/600;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    background-image: url('../vectors-svg/backgrounds/circle-scatter-haikei.svg');
+}

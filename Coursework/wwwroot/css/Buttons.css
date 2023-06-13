@@ -1,0 +1,22 @@
+﻿.affirmButton {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(0, 0, 28);
+    border: none;
+    border-radius: 15px;
+}
+
+.affirmButton:hover {
+    background-color: rgb(0, 0, 66);
+}
+
+.affirmButton:active {
+    background-color: rgb(0, 0, 66);
+    transform: translateY(4px);
+}

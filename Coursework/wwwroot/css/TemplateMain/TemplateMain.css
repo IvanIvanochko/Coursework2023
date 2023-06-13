@@ -1,0 +1,51 @@
+﻿body {
+    
+    margin: 0;
+}
+
+.container {
+    min-height: 84vh;
+}
+
+.container-header-top {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    position: absolute;
+    z-index: 9999; /* Set a high z-index to ensure the header is on top */
+}
+
+.pic-header {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    width: 50px;
+    height: 50px;
+}
+
+.container-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 20px;
+    background-color: rgb(0, 0, 28);
+    z-index: 9000; /* Set a high z-index to ensure the header is on top */
+}
+
+.text-header {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 0;
+}
+
+.middle {
+    display: flex;
+    flex-grow: 1; /* Allow the middle div to grow and occupy remaining space */
+}
